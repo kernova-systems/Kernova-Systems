@@ -1,0 +1,6 @@
+{
+  "name": "Kernova Systems — Spatial Hero Transition",
+  "description": "Cinematic spatial opening transition prototype for Kernova Systems hero section.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

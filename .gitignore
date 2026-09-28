@@ -1,0 +1,20 @@
+node_modules/
+build/
+dist/
+coverage/
+.DS_Store
+*.log
+.env*
+!.env.example
+
+# Temporary and Scratch Directories
+.relay/
+scratch/
+Trinity Sanctuary _ Encrypted Client Care Portal_files/
+extracted_draft_assets/
+extracted_playbook_assets/
+extracted_playbook_pages/
+
+# Large Archives and Backups
+*.zip
+*.bak

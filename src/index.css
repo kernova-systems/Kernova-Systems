@@ -1,0 +1,130 @@
+@import "tailwindcss";
+
+@font-face {
+  font-family: 'Cy Grotesk v3 Wide';
+  src:
+    local('Cy Grotesk v3 Wide Black'),
+    local('Cy Grotesk v3 Wide'),
+    local('CyGrotesk-WideBlack'),
+    local('CyGrotesk-Wide-Black');
+  font-weight: 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Cy Grotesk v3 Grand';
+  src:
+    local('Cy Grotesk v3 Grand Black'),
+    local('Cy Grotesk v3 Grand'),
+    local('CyGrotesk-GrandBlack'),
+    local('CyGrotesk-Grand-Black');
+  font-weight: 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+@layer base {
+  :root {
+    --color-primary: #000000;
+    --color-secondary: #fefefe;
+    --color-contrast: #7abfff;
+    --color-system-neutral: #bbb9b9;
+  }
+
+  html, body {
+    width: 100%;
+    min-height: 100%;
+    margin: 0;
+    padding: 0;
+    background-color: #000000;
+    color: #fefefe;
+    overflow-x: hidden;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+  }
+
+  #root {
+    width: 100%;
+    min-height: 100%;
+    margin: 0;
+    padding: 0;
+  }
+}
+
+/* =========================================================================
+   LENIS SMOOTH SCROLL STYLING (Awwwards-grade momentum & inertia damping)
+   ========================================================================= */
+html.lenis, html.lenis body {
+  height: auto;
+}
+
+.lenis.lenis-smooth {
+  scroll-behavior: auto !important;
+}
+
+.lenis.lenis-smooth [data-lenis-prevent] {
+  overscroll-behavior: contain;
+}
+
+.lenis.lenis-stopped {
+  overflow: hidden;
+}
+
+.lenis.lenis-scrolling iframe {
+  pointer-events: none;
+}
+
+/* Primary Font (Cy Grotesk v3 Wide Font, Weight Black) */
+.font-cy-wide {
+  font-family: 'Cy Grotesk v3 Wide', 'Syne', -apple-system, BlinkMacSystemFont, sans-serif;
+  font-weight: 900;
+  letter-spacing: -0.01em;
+}
+
+/* Additional Font Selection (Cy Grotesk v3 Grand, Weight Black) */
+.font-cy-grand {
+  font-family: 'Cy Grotesk v3 Grand', 'Archivo Black', 'Syne', sans-serif;
+  font-weight: 900;
+  letter-spacing: -0.015em;
+  font-stretch: 115%;
+}
+
+/* Secondary Font (Inter, Weight Medium) - (I) */
+.font-inter-medium, .font-para {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  font-weight: 500;
+}
+
+/* Header Font (Syne, Bold 700) - (H) */
+.font-header, .font-syne-bold {
+  font-family: 'Syne', sans-serif;
+  font-weight: 700;
+}
+
+/* Special Headline Font (Syne, ExtraBold 800) - (SH) */
+.font-special-headline, .font-syne-extrabold {
+  font-family: 'Syne', sans-serif;
+  font-weight: 800;
+}
+
+/* Special Contrast Font (Cormorant Garamond, SemiBold 600 Italic) - (C) */
+.font-special-contrast, .font-garamond-italic {
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-weight: 600;
+  font-style: italic;
+}
+
+/* Contrasting Font (Cormorant Garamond) */
+.font-garamond {
+  font-family: 'Cormorant Garamond', Georgia, serif;
+}
+
+/* CTA Font (Inter Font, Black font weight, Letter spacing 10) */
+.font-cta {
+  font-family: 'Inter', sans-serif;
+  font-weight: 900;
+  letter-spacing: 0.1em;
+}
+
