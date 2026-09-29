@@ -411,20 +411,45 @@ export const BreakTheIceSection: React.FC<BreakTheIceSectionProps> = ({
     };
   }, [renderFrame, updateZoomTransforms]);
 
-  // Form submit handler for contact modal
-  const handleModalSubmit = (e: React.FormEvent) => {
+  const [errorMessage, setErrorMessage] = useState<string>('');
+
+  // Form submit handler for contact modal with Resend integration
+  const handleModalSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     if (!formData.email) return;
     setIsSubmitting(true);
-    setTimeout(() => {
-      setIsSubmitting(false);
+    setErrorMessage('');
+
+    try {
+      const response = await fetch('/api/contact', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          name: formData.name.trim(),
+          email: formData.email.trim(),
+          message: formData.message.trim(),
+        }),
+      });
+
+      const data = await response.json().catch(() => ({}));
+
+      if (!response.ok) {
+        throw new Error(data?.error || 'Failed to send message. Please try again.');
+      }
+
       setSubmitted(true);
       setTimeout(() => {
         setSubmitted(false);
         setShowContactModal(false);
         setFormData({ name: '', email: '', message: '' });
-      }, 1600);
-    }, 600);
+      }, 2000);
+    } catch (err: any) {
+      setErrorMessage(err?.message || 'Failed to send enquiry. Please try again.');
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   // Close modal on Escape key
@@ -902,11 +927,17 @@ export const BreakTheIceSection: React.FC<BreakTheIceSectionProps> = ({
                   />
                 </div>
 
+                {errorMessage && (
+                  <div className="p-3 rounded bg-red-950/60 border border-red-500/40 text-red-200 text-xs font-mono">
+                    {errorMessage}
+                  </div>
+                )}
+
                 <div className="pt-1 sm:pt-2">
                   <button
                     type="submit"
                     disabled={isSubmitting}
-                    className="w-full py-3 sm:py-4 md:py-4.5 px-6 sm:px-8 bg-[#004bb5] hover:bg-[#003893] active:scale-[0.98] text-white font-bold uppercase text-xs sm:text-sm md:text-base rounded-lg transition-all cursor-pointer shadow-lg shadow-[#004bb5]/25 tracking-wider flex items-center justify-center gap-2"
+                    className="w-full py-3 sm:py-4 md:py-4.5 px-6 sm:px-8 bg-[#004bb5] hover:bg-[#003893] active:scale-[0.98] text-white font-bold uppercase text-xs sm:text-sm md:text-base rounded-lg transition-all cursor-pointer shadow-lg shadow-[#004bb5]/25 tracking-wider flex items-center justify-center gap-2 disabled:opacity-50 disabled:cursor-not-allowed"
                     style={{ fontFamily: "'Inter', sans-serif" }}
                   >
                     <span>{isSubmitting ? 'Sending...' : 'Send'}</span>
