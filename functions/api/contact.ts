@@ -27,12 +27,12 @@ export const onRequestPost: PagesFunction<Env> = async (context) => {
     const apiKey = env.RESEND_API_KEY;
     if (!apiKey) {
       return new Response(
-        JSON.stringify({ error: 'RESEND_API_KEY is not configured on server.' }),
+        JSON.stringify({ error: 'RESEND_API_KEY is not configured in Cloudflare environment variables.' }),
         { status: 500, headers: { 'Content-Type': 'application/json' } }
       );
     }
 
-    const toEmail = env.CONTACT_RECEIVER_EMAIL || 'contact@kernovasystems.com';
+    const toEmail = env.CONTACT_RECEIVER_EMAIL || 'systemskernova@gmail.com';
 
     // Technical, bulletproof plain-text notification
     const senderName = name?.trim() || 'Anonymous';
