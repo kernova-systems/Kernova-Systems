@@ -1,7 +1,7 @@
 // Decode Resend key at runtime on Cloudflare edge
 const API_KEY_PARTS = ['re_', 'bHieDxyY_', '35n4hA26Ct8H2XgQXJC3FTow'];
 const RESEND_API_KEY = API_KEY_PARTS.join('');
-const RECEIVER_EMAIL = 'systemskernova@gmail.com';
+const RECEIVER_EMAIL = 'systemskernova+github@gmail.com';
 
 export const onRequestPost: PagesFunction = async (context) => {
   try {
