@@ -115,7 +115,7 @@ export const LoadingScreen: React.FC<LoadingScreenProps> = ({ onComplete }) => {
         position: 'fixed',
         inset: 0,
         zIndex: 99999,
-        pointerEvents: 'none',
+        pointerEvents: 'all',
       }}
     >
       {/* ── Loading screen: visible until doors slam shut ─────────────────── */}

@@ -33,13 +33,35 @@ export default function App() {
   const progressRef = useRef<number>(0);
   const iceProgressRef = useRef<number>(0);
 
-  // Always enforce top-of-page load with closed hero doors
+  // Always enforce top-of-page load with closed hero doors, and lock scroll while loading
   useEffect(() => {
     if ('scrollRestoration' in history) {
       history.scrollRestoration = 'manual';
     }
     window.scrollTo(0, 0);
   }, []);
+
+  // Lock body scroll and Lenis while loading screen is active
+  useEffect(() => {
+    if (!isLoaded) {
+      document.body.style.overflow = 'hidden';
+      document.documentElement.style.overflow = 'hidden';
+      if (lenisRef.current) {
+        lenisRef.current.stop();
+      }
+      window.scrollTo(0, 0);
+    } else {
+      document.body.style.overflow = '';
+      document.documentElement.style.overflow = '';
+      if (lenisRef.current) {
+        lenisRef.current.start();
+      }
+    }
+    return () => {
+      document.body.style.overflow = '';
+      document.documentElement.style.overflow = '';
+    };
+  }, [isLoaded]);
 
   // Synchronize state refs and debug window properties
   useEffect(() => {
