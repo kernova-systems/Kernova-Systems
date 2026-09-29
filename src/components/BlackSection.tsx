@@ -299,14 +299,14 @@ export const BlackSection: React.FC = () => {
 
         {/* Three Legal Pages Links */}
         <div className="flex flex-wrap justify-center items-center gap-8 sm:gap-16 md:gap-24 text-xs sm:text-sm text-[#bbb9b9] font-serif mb-10">
-          <a href="#legal-1" className="hover:text-white transition-colors">
-            Legal Pages
+          <a href="/privacy-policy.html" className="hover:text-white transition-colors">
+            Privacy Policy
           </a>
-          <a href="#legal-2" className="hover:text-white transition-colors">
-            Legal Pages
+          <a href="/terms.html" className="hover:text-white transition-colors">
+            Terms &amp; Conditions
           </a>
-          <a href="#legal-3" className="hover:text-white transition-colors">
-            Legal Pages
+          <a href="/cookies.html" className="hover:text-white transition-colors">
+            Cookie Policy
           </a>
         </div>
 

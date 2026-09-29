@@ -3,6 +3,7 @@ import gsap from 'gsap';
 import Lenis from 'lenis';
 import { HeroTransition } from './components/HeroTransition';
 import { KernovaLogo } from './components/KernovaLogo';
+import { LoadingScreen } from './components/LoadingScreen';
 
 export default function App() {
   const [progress, setProgress] = useState<number>(0);
@@ -14,6 +15,16 @@ export default function App() {
   const [iceProgress, setIceProgress] = useState<number>(0);
   const [glacierZoom, setGlacierZoom] = useState<number>(0);
   const [glacierFlyUp, setGlacierFlyUp] = useState<number>(0);
+  const [isLoaded, setIsLoaded] = useState<boolean>(() => {
+    return typeof window !== 'undefined' && sessionStorage.getItem('kernova_loaded') === 'true';
+  });
+
+  const handleLoadingComplete = useCallback(() => {
+    if (typeof window !== 'undefined') {
+      sessionStorage.setItem('kernova_loaded', 'true');
+    }
+    setIsLoaded(true);
+  }, []);
 
   const stickyTrackRef = useRef<HTMLDivElement>(null);
   const lenisRef = useRef<Lenis | null>(null);
@@ -283,16 +294,24 @@ export default function App() {
         type="button"
         onClick={handleCloseDoors}
         aria-label="Return to home section"
-        className="fixed top-3 left-3 sm:top-5 sm:left-5 z-50 px-2 sm:px-2.5 py-1 sm:py-1.5 rounded-lg bg-black/60 hover:bg-black/85 backdrop-blur-md border border-white/15 hover:border-white/35 transition-all duration-300 hover:scale-105 active:scale-95 shadow-xl cursor-pointer flex items-center justify-center pointer-events-auto"
+        className="fixed top-3 left-3 sm:top-5 sm:left-5 z-50 p-1 transition-all duration-300 hover:scale-110 active:scale-95 cursor-pointer flex items-center justify-center pointer-events-auto"
         style={{
           opacity: progress > 0.03 ? 1 : 0,
           visibility: progress > 0.03 ? 'visible' : 'hidden',
           pointerEvents: progress > 0.03 ? 'auto' : 'none',
           transition: 'opacity 0.3s ease, visibility 0.3s ease, transform 0.2s ease',
+          background: 'none',
+          border: 'none',
+          boxShadow: 'none',
         }}
       >
-        <KernovaLogo variant="full" theme="dark" height="14px" />
+        <KernovaLogo variant="symbol" theme="dark" height="28px" />
       </button>
+
+      {/* Loading screen — rendered on top of everything, fades out once assets are ready */}
+      {!isLoaded && (
+        <LoadingScreen onComplete={handleLoadingComplete} />
+      )}
     </main>
   );
 }

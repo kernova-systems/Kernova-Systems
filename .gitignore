@@ -8,6 +8,7 @@ coverage/
 !.env.example
 
 # Temporary and Scratch Directories
+.wrangler/
 .relay/
 scratch/
 Trinity Sanctuary _ Encrypted Client Care Portal_files/

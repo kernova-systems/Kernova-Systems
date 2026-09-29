@@ -518,7 +518,7 @@ export const BreakTheIceSection: React.FC<BreakTheIceSectionProps> = ({
             alt="Frozen Ice Surface"
             className="absolute inset-0 w-full h-full object-cover select-none pointer-events-none"
             style={{
-              filter: 'brightness(0.84) contrast(106%)',
+              filter: 'brightness(0.9) contrast(82%) blur(0.6px) saturate(0.92)',
             }}
           />
 
@@ -527,7 +527,7 @@ export const BreakTheIceSection: React.FC<BreakTheIceSectionProps> = ({
             ref={canvasRef}
             className="absolute inset-0 w-full h-full block pointer-events-none select-none z-[1]"
             style={{
-              filter: 'brightness(0.84) contrast(106%)',
+              filter: 'brightness(0.9) contrast(82%) blur(0.6px) saturate(0.92)',
             }}
           />
 
@@ -549,7 +549,7 @@ export const BreakTheIceSection: React.FC<BreakTheIceSectionProps> = ({
             }}
           >
             <div
-              className="relative w-full max-w-[1400px] px-2 sm:px-6 flex items-center justify-center will-change-transform"
+              className="relative w-full px-2 sm:px-6 flex items-center justify-center will-change-transform overflow-visible"
               style={{
                 opacity: shardOpacity,
                 transform: `scale(${1 - Math.min(BREAK_START, breakProgress) * 0.04})`,
@@ -559,13 +559,15 @@ export const BreakTheIceSection: React.FC<BreakTheIceSectionProps> = ({
               {/* Invisible spacer giving the shard container identical sizing & alignment */}
               <h2
                 aria-hidden="true"
-                className="font-extrabold uppercase text-white tracking-tight text-center select-none w-full invisible pointer-events-none whitespace-nowrap"
+                className="font-extrabold uppercase text-white tracking-tight text-center select-none w-full invisible pointer-events-none"
                 style={{
                   fontFamily: "'Syne', sans-serif",
                   fontWeight: 800,
-                  fontSize: 'clamp(1.85rem, 8.2vw, 8.5rem)',
+                  fontSize: 'clamp(1.4rem, 7vw, 8.5rem)',
                   lineHeight: 0.88,
                   letterSpacing: '-0.025em',
+                  whiteSpace: 'nowrap',
+                  width: '100%',
                 }}
               >
                 BREAK THE ICE
@@ -594,13 +596,15 @@ export const BreakTheIceSection: React.FC<BreakTheIceSectionProps> = ({
                     }}
                   >
                     <h2
-                      className="font-extrabold uppercase text-white tracking-tight text-center select-none w-full whitespace-nowrap"
+                      className="font-extrabold uppercase text-white tracking-tight text-center select-none w-full"
                       style={{
                         fontFamily: "'Syne', sans-serif",
                         fontWeight: 800,
-                        fontSize: 'clamp(1.85rem, 8.2vw, 8.5rem)',
+                        fontSize: 'clamp(1.4rem, 7vw, 8.5rem)',
                         lineHeight: 0.88,
                         letterSpacing: '-0.025em',
+                        whiteSpace: 'nowrap',
+                        width: '100%',
                         textShadow:
                           '0 8px 50px rgba(0,0,0,0.9), 0 0 70px rgba(122,191,255,0.45)',
                       }}
@@ -621,13 +625,13 @@ export const BreakTheIceSection: React.FC<BreakTheIceSectionProps> = ({
               - Supported by a generous long scroll trigger runway
               ============================================================ */}
           <div
-            className="absolute inset-0 flex flex-col items-center justify-start sm:justify-center z-[4] px-4 sm:px-8 py-6 sm:py-10 overflow-hidden pointer-events-none"
+            className="absolute inset-0 flex flex-col items-center justify-center z-[4] px-4 sm:px-8 pointer-events-none"
             style={{
               visibility: isContactVisible ? 'visible' : 'hidden',
             }}
           >
             <div
-              className="relative z-10 text-center max-w-[1240px] mx-auto flex flex-col items-center justify-center w-full py-2 sm:py-6"
+              className="relative z-10 text-center max-w-[1240px] mx-auto flex flex-col items-center justify-center w-full px-2"
               style={{
                 transform: `translate3d(0, ${sectionParallaxY}px, 0)`,
                 transition: 'transform 0.1s ease-out',
@@ -646,13 +650,13 @@ export const BreakTheIceSection: React.FC<BreakTheIceSectionProps> = ({
                 className="w-full"
               >
                 <h2
-                  className="text-2xl sm:text-4xl md:text-6xl lg:text-[76px] xl:text-[88px] font-bold uppercase text-black tracking-tight leading-[1.02] select-none"
+                  className="text-2xl sm:text-4xl md:text-6xl lg:text-[76px] xl:text-[88px] font-bold uppercase text-white tracking-tight leading-[1.02] select-none"
                   style={{
                     fontFamily: "'Syne', sans-serif",
                     fontWeight: 700,
                     letterSpacing: '-0.025em',
-                    color: '#000000',
-                    textShadow: '0 2px 25px rgba(255,255,255,0.6)',
+                    color: '#ffffff',
+                    textShadow: '0 2px 25px rgba(0,0,0,0.4)',
                   }}
                 >
                   WE BUILD THE JOURNEY.
@@ -670,23 +674,23 @@ export const BreakTheIceSection: React.FC<BreakTheIceSectionProps> = ({
                 className="mt-3 sm:mt-5 space-y-1.5 sm:space-y-2 max-w-[960px] mx-auto w-full px-2"
               >
                 <p
-                  className="text-base sm:text-xl md:text-2xl lg:text-[32px] text-black font-bold leading-relaxed select-none"
+                  className="text-base sm:text-xl md:text-2xl lg:text-[32px] text-white font-bold leading-relaxed select-none"
                   style={{
                     fontFamily: "'Inter', sans-serif",
                     fontWeight: 700,
-                    color: '#000000',
-                    textShadow: '0 1px 16px rgba(255,255,255,0.85), 0 0 2px rgba(255,255,255,0.95)',
+                    color: '#ffffff',
+                    textShadow: '0 1px 16px rgba(0,0,0,0.5)',
                   }}
                 >
                   Your website is only the beginning.
                 </p>
                 <p
-                  className="text-xs sm:text-sm md:text-xl lg:text-[24px] text-black font-semibold leading-relaxed select-none"
+                  className="text-xs sm:text-sm md:text-xl lg:text-[24px] text-white font-semibold leading-relaxed select-none"
                   style={{
                     fontFamily: "'Inter', sans-serif",
                     fontWeight: 600,
-                    color: '#000000',
-                    textShadow: '0 1px 16px rgba(255,255,255,0.85), 0 0 2px rgba(255,255,255,0.95)',
+                    color: '#ffffff',
+                    textShadow: '0 1px 16px rgba(0,0,0,0.5)',
                   }}
                 >
                   We build the digital systems around your business. Connecting your website, applications, CRM, automation and AI into one experience.
@@ -718,120 +722,97 @@ export const BreakTheIceSection: React.FC<BreakTheIceSectionProps> = ({
                 </button>
               </div>
 
-              {/* 4. Official Footer Kept Directly Within the Ice Glacier - Stagger 4 */}
-              <div
-                style={{
-                  opacity: stagger4.opacity,
-                  transform: stagger4.transform,
-                  visibility: stagger4.visibility,
-                  transition: 'opacity 0.12s ease-out, transform 0.12s ease-out',
-                }}
-                className="w-full"
-              >
-                <footer className="w-full pt-8 sm:pt-16 md:pt-24 pb-6 sm:pb-12 mt-8 sm:mt-16 md:mt-24 flex flex-col items-center justify-center">
-                  {/* Official Brand Logo in Authentic Black Variant - Significantly Enlarged with 4K Asset */}
-                  <div className="mb-4 sm:mb-8 pointer-events-auto">
-                    <KernovaLogo variant="full" theme="light" height="clamp(70px, 12vw, 175px)" />
-                  </div>
-
-                  {/* Contrasting domain style in Cormorant Garamond Bold */}
-                  <p
-                    className="text-xl sm:text-3xl md:text-4xl lg:text-[54px] text-black mb-6 sm:mb-12 select-none font-bold tracking-wider"
-                    style={{
-                      fontFamily: "'Cormorant Garamond', serif",
-                      fontWeight: 700,
-                      letterSpacing: '0.18em',
-                      color: '#000000',
-                      WebkitFontSmoothing: 'antialiased',
-                      MozOsxFontSmoothing: 'grayscale',
-                      textRendering: 'optimizeLegibility',
-                      textShadow: '0 2px 24px rgba(255,255,255,0.6)',
-                    }}
-                  >
-                    Kernova.systems
-                  </p>
-
-                  {/* Three Legal Pages Links in Cormorant Garamond Bold */}
-                  <div className="flex flex-wrap justify-center items-center gap-6 sm:gap-14 md:gap-24 lg:gap-36 text-sm sm:text-lg md:text-2xl lg:text-[32px] text-black font-bold mb-6 sm:mb-12">
-                    {['Legal Pages', 'Legal Pages', 'Legal Pages'].map((label, idx) => (
-                      <a
-                        key={idx}
-                        href={`#legal-${idx + 1}`}
-                        onClick={(e) => e.preventDefault()}
-                        className="pointer-events-auto hover:text-black hover:underline transition-all cursor-pointer text-black"
-                        style={{
-                          fontFamily: "'Cormorant Garamond', serif",
-                          fontWeight: 700,
-                          color: '#000000',
-                          WebkitFontSmoothing: 'antialiased',
-                          MozOsxFontSmoothing: 'grayscale',
-                          textRendering: 'optimizeLegibility',
-                          textShadow: '0 2px 20px rgba(255,255,255,0.6)',
-                        }}
-                      >
-                        {label}
-                      </a>
-                    ))}
-                  </div>
-
-                  {/* Social Icons (Instagram, X, YouTube, LinkedIn) in Black */}
-                  <div className="flex items-center justify-center gap-6 sm:gap-10 md:gap-14 text-black">
-                    {/* Instagram */}
-                    <a
-                      href="https://instagram.com"
-                      target="_blank"
-                      rel="noreferrer"
-                      aria-label="Instagram"
-                      className="text-black hover:text-black hover:scale-115 transition-transform opacity-90 hover:opacity-100 cursor-pointer"
-                    >
-                      <svg className="w-5 h-5 sm:w-7 sm:h-7 md:w-9 md:h-9 fill-current" style={{ shapeRendering: 'geometricPrecision' }} viewBox="0 0 24 24">
-                        <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689-.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z" />
-                      </svg>
-                    </a>
-
-                    {/* X (formerly Twitter) */}
-                    <a
-                      href="https://x.com"
-                      target="_blank"
-                      rel="noreferrer"
-                      aria-label="X (Twitter)"
-                      className="text-black hover:text-black hover:scale-115 transition-transform opacity-90 hover:opacity-100 cursor-pointer"
-                    >
-                      <svg className="w-4.5 h-4.5 sm:w-6.5 sm:h-6.5 md:w-8.5 md:h-8.5 fill-current" style={{ shapeRendering: 'geometricPrecision' }} viewBox="0 0 24 24">
-                        <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
-                      </svg>
-                    </a>
-
-                    {/* YouTube */}
-                    <a
-                      href="https://youtube.com"
-                      target="_blank"
-                      rel="noreferrer"
-                      aria-label="YouTube"
-                      className="text-black hover:text-black hover:scale-115 transition-transform opacity-90 hover:opacity-100 cursor-pointer"
-                    >
-                      <svg className="w-5 h-5 sm:w-7 sm:h-7 md:w-9 md:h-9 fill-current" style={{ shapeRendering: 'geometricPrecision' }} viewBox="0 0 24 24">
-                        <path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z" />
-                      </svg>
-                    </a>
-
-                    {/* LinkedIn */}
-                    <a
-                      href="https://linkedin.com"
-                      target="_blank"
-                      rel="noreferrer"
-                      aria-label="LinkedIn"
-                      className="text-black hover:text-black hover:scale-115 transition-transform opacity-90 hover:opacity-100 cursor-pointer"
-                    >
-                      <svg className="w-4.5 h-4.5 sm:w-6.5 sm:h-6.5 md:w-8.5 md:h-8.5 fill-current" style={{ shapeRendering: 'geometricPrecision' }} viewBox="0 0 24 24">
-                        <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.761-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z" />
-                      </svg>
-                    </a>
-                  </div>
-                </footer>
-              </div>
+              {/* END stagger3 */}
             </div>
           </div>
+
+          {/* ============================================================
+              FOOTER — Pinned to absolute bottom of the ice section
+              Layout: Logo LEFT · Legal links RIGHT (row 1) · Socials RIGHT (row 2)
+              ============================================================ */}
+          <div
+            style={{
+              opacity: stagger4.opacity,
+              visibility: stagger4.visibility,
+              transition: 'opacity 0.15s ease-out',
+            }}
+            className="absolute bottom-0 left-0 right-0 z-[5] pointer-events-auto px-4 sm:px-8 md:px-12 py-3 sm:py-5 md:py-7"
+          >
+            <footer className="w-full flex items-end justify-between gap-4">
+
+              {/* LEFT — Kernova logo */}
+              <div className="flex-shrink-0">
+                <KernovaLogo variant="full" theme="dark" height="clamp(28px, 5vw, 80px)" />
+              </div>
+
+              {/* RIGHT — Legal links (row 1) + Social icons (row 2) */}
+              <div className="flex flex-col items-end gap-1.5 sm:gap-3">
+
+                {/* Legal links */}
+                <div className="flex items-center gap-3 sm:gap-6 md:gap-10">
+                  {[
+                    { label: 'Privacy Policy', href: '/privacy-policy.html' },
+                    { label: 'Terms & Conditions', href: '/terms.html' },
+                    { label: 'Cookie Policy', href: '/cookies.html' },
+                  ].map(({ label, href }) => (
+                    <a
+                      key={href}
+                      href={href}
+                      className="text-white hover:underline transition-all cursor-pointer"
+                      style={{
+                        fontFamily: "'Cormorant Garamond', serif",
+                        fontWeight: 700,
+                        fontSize: 'clamp(9px, 1.2vw, 18px)',
+                        color: '#ffffff',
+                        textShadow: '0 1px 12px rgba(0,0,0,0.5)',
+                        whiteSpace: 'nowrap',
+                      }}
+                    >
+                      {label}
+                    </a>
+                  ))}
+                </div>
+
+                {/* Social icons */}
+                <div className="flex items-center gap-3 sm:gap-5 text-white">
+
+                  {/* Instagram */}
+                  <a href="https://instagram.com" target="_blank" rel="noreferrer" aria-label="Instagram"
+                    className="text-white hover:scale-110 transition-transform opacity-80 hover:opacity-100 cursor-pointer">
+                    <svg className="w-3.5 h-3.5 sm:w-5 sm:h-5 md:w-6 md:h-6 fill-current" viewBox="0 0 24 24">
+                      <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689-.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z" />
+                    </svg>
+                  </a>
+
+                  {/* X */}
+                  <a href="https://x.com" target="_blank" rel="noreferrer" aria-label="X (Twitter)"
+                    className="text-white hover:scale-110 transition-transform opacity-80 hover:opacity-100 cursor-pointer">
+                    <svg className="w-3 h-3 sm:w-4.5 sm:h-4.5 md:w-5 md:h-5 fill-current" viewBox="0 0 24 24">
+                      <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
+                    </svg>
+                  </a>
+
+                  {/* YouTube */}
+                  <a href="https://youtube.com" target="_blank" rel="noreferrer" aria-label="YouTube"
+                    className="text-white hover:scale-110 transition-transform opacity-80 hover:opacity-100 cursor-pointer">
+                    <svg className="w-3.5 h-3.5 sm:w-5 sm:h-5 md:w-6 md:h-6 fill-current" viewBox="0 0 24 24">
+                      <path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z" />
+                    </svg>
+                  </a>
+
+                  {/* LinkedIn */}
+                  <a href="https://linkedin.com" target="_blank" rel="noreferrer" aria-label="LinkedIn"
+                    className="text-white hover:scale-110 transition-transform opacity-80 hover:opacity-100 cursor-pointer">
+                    <svg className="w-3 h-3 sm:w-4.5 sm:h-4.5 md:w-5 md:h-5 fill-current" viewBox="0 0 24 24">
+                      <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.761-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z" />
+                    </svg>
+                  </a>
+
+                </div>
+              </div>
+            </footer>
+          </div>
+
         </div>
 
       </div>

@@ -135,7 +135,29 @@ export const CenterStageMockup: React.FC<CenterStageMockupProps> = ({
 
   // Resting position: EXACTLY 60% of the widget is visible above the bottom of the screen (40% submerged into the grass) irrespective of device size
   const yBottom = (vh * 0.50) / camScale;
-  const restingY = yBottom - 0.10 * widget3DHeight;
+  const rawRestingY = yBottom - 0.10 * widget3DHeight;
+
+  // ── SAFE-ZONE GUARD ──────────────────────────────────────────────────────
+  // The text block lives at the viewport centre. On narrow/tall screens the
+  // widget can creep up into the text area. We measure where the text ends
+  // (centre + half the estimated text block height) in camera-compensated
+  // coordinates and force the widget top to always be BELOW that line.
+  //
+  // Text block estimated heights in camera-space:
+  //   mobile  ≈ 130px  (h2 ~28px + para ~36px + gaps)
+  //   tablet  ≈ 110px
+  //   desktop ≈ 90px
+  const textBlockHalfHeight = { mobile: 80, tablet: 70, desktop: 55 }[deviceMode];
+  // Centre of the viewport in camera-compensated coords:
+  const viewportCentreY = vh / 2 / camScale;
+  // Minimum Y value for the widget top (text bottom + 16px breathing room):
+  const minWidgetTopY = viewportCentreY + textBlockHalfHeight / camScale + 16;
+  // restingY is the *top* of the widget (it translates DOWN from centre):
+  // widget top in viewport = (vh/2 / camScale) + restingY — widget3DHeight/2
+  // We want: (vh/2/camScale) + restingY - widget3DHeight/2  >=  minWidgetTopY
+  // ⟹  restingY  >=  minWidgetTopY - (vh/2/camScale) + widget3DHeight/2
+  const minRestingY = minWidgetTopY - viewportCentreY + widget3DHeight / 2;
+  const restingY = Math.max(rawRestingY, minRestingY);
   const popupTravel = deviceConfig.popupTravel;
 
   // Entrance pop-up as doors open:
